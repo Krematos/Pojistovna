@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.section-p1{
+    padding: 40px 80px;
+}
+
+.section-m1{
+    margin: 40px 0;
+}
+
+#header{
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #FF8C00;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+}
+
+#nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav li{
+    list-style: none;
+    padding: 0 20px;
+}
+
+#nav li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#nav li a:hover{
+    color: #088178;
+}
+
+#nav2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav2 li{
+    list-style: none;
+    padding: 0 20px;
+}
+
+#nav2 li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#nav2 li a:hover{
+    color: #088178;
+}
+
+/* Home Section */
+
+.container-fluid{
+    padding: 40px 200px 0 200px;
+
+}
+
+.home{
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 150px 0 50px;
+    background-color: #1a1a1a;
+}
+
+
+.left h3{
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight:  bold;
+    letter-spacing: 0.5px;
+    border-radius: 25px;
+}
+
+.left h1{
+    color: #fff;
+    font-size: 4.5rem;
+    margin: 10px 0;
+}
+
+.left h4{
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.left p {
+    width: 90%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    mask-border: 50px;
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #fff;
+}
+
+.left .btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.left .btn button{
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background: #45b8ac;
+    border: 2px black;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3 ease-in;
+}
+
+.left .btn button:hover{
+    transform: translateY(-5px);
+    background: #45b8ac;
+}
+
+.right .profile{
+    text-align: right;
+}
+
+.right .profile img{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 8px 8px 75px 32px rgba(7, 165, 37, 1);
+}
+
+.multiple{
+    color: #bc243c;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+}
+
+/* registrationForm section */
+
+#registrationForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 30% 80px 30%;
+    height: 600px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius: 15px;
+}
+
+#registrationForm h1{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+
+#registrationForm .registrace input[type="submit"]{
+    height: 50px;
+    width: 150px;
+    background-color: green;
+    border-radius: 15px;
+    border: 2px black;
+    font-size: 17px;
+    outline: none;
+    transition: 0.3 ease-in;
+    margin-top: 50px;
+    margin-left: 80px;
+}
+
+#registrationForm input{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#registrationForm .registrace input[type="submit"]:hover{
+    transform: translateY(-5px);
+    background: #45b8ac;
+}
+
+
+#registrationForm  input{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+
+/* Login section */
+
+#login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 30% 80px 30%;
+    height: 550px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius: 15px;
+}
+
+#login h1{
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+#login .input-box{
+    display: flex;
+    padding: 10px;
+}
+
+#login .input-box input[type="text"]{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+#login .input-box .fas.fa-lock {
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+#login .input-box .fas.fa-user {
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+#login .remember-forgot a {
+    padding-left: 150px;
+}
+
+
+#login .remember-forgot {
+    margin-top: 30px;
+}
+
+#login .remember-forgot input[type="checkbox"]{
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+#login .input-box input[type="password"] {
+    width: 100%; /* Zvětší šířku vstupního pole na 100% šířky jeho kontejneru */
+    height: 50px;
+    border-radius: 5px;
+}
+
+#login .btn{
+    margin-top: 30px;
+    width: 550px;
+}
+
+#login .register-link{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#login .register-link a{
+    margin-left: 170px;
+}
+
+#login .register-link p{
+    margin-left: 30px;
+}
+
+/* Pojistenci */
+
+#newPojistenec {
+    padding: 80px;
+}
+
+#newPojistenec h2{
+    font-size: 66px;
+}
+
+#newPojistenec .row{
+    padding-top: 50px;
+}
+
+#newPojistenec
+.birthday input[type="text"],
+.prijmeni input[type="text"],
+.jmeno input[type="text"],
+.email input[type="text"],
+.telefon input[type="text"],
+.mesto input[type="text"],
+.psc input[type="text"],
+.uliceAcisloPopisne input[type="text"] {
+    width: 50%;
+    height: 60px;
+    border-radius: 5px;
+}
+
+#newPojistenec .birthday, .prijmeni, .jmeno, .email, .uliceAcisloPopisne, .mesto, .psc, .telefon{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+
+#newPojistenec .pojistenec input[type="submit"]{
+    height: 50px;
+    width: 150px;
+    background-color: green;
+    border-radius: 15px;
+    border: 2px black;
+    font-size: 17px;
+    outline: none;
+    transition: 0.3 ease-in;
+}
+
+#newPojistenec .pojistenec input[type="submit"]:hover{
+    transform: translateY(-5px);
+    background: #45b8ac;
+}
+
+#newPojistenec .pojistenec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* Pojisteni section */
+
+#pojisteni {
+    padding: 80px;
+}
+
+#pojisteni h2{
+    font-size: 66px;
+    margin-bottom: 50px;
+}
+
+#pojisteni .row{
+    padding-top: 50px;
+}
+
+
+#pojisteni
+.amount input[type="text"],
+.validUntil input[type="text"],
+.validFrom input[type="text"],
+.subjectOfInsurance input[type="text"]{
+    width: 50%;
+    height: 60px;
+    border-radius: 5px;
+}
+
+#pojisteni .amount, .validUntil, .validFrom, .subjectOfInsurance{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+
+#pojisteni .vyberPojisteni{
+    width: 76%;
+    height: 60px;
+    border-radius: 5px;
+}
+
+#pojisteni .vyberPojisteni{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+
+#pojisteni .save input[type="submit"]{
+    height: 50px;
+    width: 150px;
+    background-color: green;
+    border-radius: 15px;
+    border: 2px black;
+    font-size: 17px;
+    outline: none;
+    transition: 0.3 ease-in;
+}
+
+#pojisteni .save input[type="submit"]:hover{
+    transform: translateY(-5px);
+    background: #45b8ac;
+}
+
+#pojisteni .save{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+/* Main section */
+
+#main {
+    background-image: url(images/pojistovna.jpg);
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items:  flex-start;
+    justify-content: center;
+}
+
+#main .mainText h1{
+   color: #FFD700;
+   background-color: #A52A2A;
+}
+
+#main .feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#main .fe-box{
+    width: 380px;
+    height: 500px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px #a9c0be;
+    border: 5px solid #cce7d0;
+    border-radius: 4px;
+    margin: 80px;
+    background-color: #fff;
+}
+
+#main .fe-box:hover{
+    box-shadow: 10px 10px 54px #30dace;
+}
+
+#main .fe-box h6{
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    background-color: #fddde4;
+}
+
+
+#main .povodne, .hardtimes, .free-shipping{
+    width: 300px;
+    height: 180px;
+    margin-bottom: 15px;
+}
+
+#main .fe-box .reportDamage{
+    background-color: #A52A2A;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#main .fe-box .solveDamage{
+    background-color: #088178;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#main .fe-box .druhyPojisteni{
+    list-style:  none;
+}
+
+#main .fe-box .druhyPojisteni li{
+    margin-bottom: 7px;
+}
+
+#main .fe-box{
+    background-color: #FF8C00;
+}
+
+#main .fe-box  .makePojisteni{
+    background-color: #A52A2A;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+}
+
+#main a{
+    color: #222;
+    text-decoration: none;
+}
+
+
+/* Media Screen */
+
+@media screen and (max-width: 1280px) {
+    nav {
+        padding: 0 50px;
+    }
+
+    .home{
+        padding: 250px 50px;
+        z-index: auto;
+    }
+
+    .left h1{
+        font-size: 4rem;
+    }
+
+    .right .profile img {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+
+/*Footer*/
+
+#footer{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #3586ff;
+}
+
+footer p{
+    color: #000;
+}
+
+footer .alogo{
+    border-radius: 50px;
+    margin-bottom: 50px;
+}
+
+footer .logo{
+    margin-bottom: 30px;
+}
+
+footer .icon{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    width: 25px;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
+footer a {
+    color: #222;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+footer h4{
+    margin-bottom: 50px;
+}
+
+
+footer i{
+    margin-right: 15px;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+footer h3{
+    margin-bottom:20px;
+}
+
+
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}

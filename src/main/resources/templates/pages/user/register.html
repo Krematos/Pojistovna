@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<section id="registrationForm">
+    <form class="registrationForm" th:action="@{/register}" th:object="${userDTO}" method="post">
+        <h1>Registrace:</h1>
+        <div class="email">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="novak@gmail.com" th:field="*{email}">
+        </div>
+        <div class="heslo">
+            <label for="password">Heslo:</label>
+            <input type="password" id="password" name="heslo" placeholder="heslo" th:field="*{password}">
+        </div>
+        <div class="hesloZnovu">
+            <label for="confirmPassword">Heslo znovu:</label>
+            <input type="password" id="confirmPassword" name="hesloZnovu" placeholder="heslo" th:field="*{confirmPassword}">
+        </div>
+
+        <div class="registrace">
+            <input type="submit" value="Registrovat se">
+        </div>
+    </form>
+</section>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

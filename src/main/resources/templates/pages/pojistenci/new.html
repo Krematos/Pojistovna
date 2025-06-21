@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<section id="newPojistenec">
+    <form class="newPojistence" th:action="@{/pages/pojistenci/new}" th:object="$@{pojistenciDTO}">
+        <h2>Nový pojištěnec:</h2>
+        <div class="row">
+            <div class="col-6">
+                <div class="jmeno">
+                    <label for="name">Jméno:</label>
+                    <input type="text" id="name" name="jmeno" placeholder="Jan" th:field="@{name}" >
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="lastName">
+                    <label for="lastName">Příjmení:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Novák" th:field="@{lastName}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="birthday">
+                    <label for="birthday">Datum narození:</label>
+                    <input type="text" id="birthday" name="birthday"  placeholder="22.1.2000" th:field="@{birthday}">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="telefon">
+                    <label for="telefon">Telefon:</label>
+                    <input type="text" id="telefon" name="telefon"  placeholder="601 531 333" th:field="@{telefon}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="uliceAcisloPopisne">
+                    <label for="address">Ulice a číslo popisné:</label>
+                    <input type="text" id="address" name="uliceAcisloPopisne" placeholder="Školní 14" th:field="@{address}">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="town">
+                    <label for="town">Město:</label>
+                    <input type="text" id="town" name="town" placeholder="Praha" th:field="@{town}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="psc">
+                    <label for="psc">PSČ:</label>
+                    <input type="text" id="psc" name="psc" placeholder="340 22" th:field="@{PSC}">
+                </div>
+            </div>
+        </div>
+
+        <div class="pojistenec">
+            <input type="submit" value="Registrovat se">
+        </div>
+    </form>
+</section>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

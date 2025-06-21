@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div>
+<div class="py-2 flash-message message-success" th:text="${param.error}">Neplatný email nebo heslo</div>
+
+<section id="login">
+    <div class="wrapper">
+        <form class="Loginform" th:action="@{/login}" method="post">
+            <h1>Přihlášení</h1>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Email"  required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Heslo"  required>
+                <i class="fas fa-lock"></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Zapamatuj si mě</label>
+                <a href="#">Zapomněl jsem heslo</a>
+            </div>
+            <button type="submit" class="btn">Přihlásit se</button>
+
+            <div class="register-link">
+                <p>Nemáte ještě účet?
+                    <a th:href="@{register.html}">Registrovat se</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<section id="main" class="section-p1" >
+    <div class="mainText">
+        <h1>Špička v oboru <br>
+            Klienti jsou vždy na 1. místě <br>
+            na nás se můžete spolehnout!</h1>
+    </div>
+    <div class="feature" >
+        <div class="fe-box">
+            <img class="free-shipping" th:src="@{images/pr_cdr_obr.jpg}">
+            <h6>Sjednání online<br> z pohodlí domova</h6>
+            <p>Sjednej si u nás pojistění z úplně online a z pohodlí domova</p>
+            <div class="makePojisteni">
+                <a th:href="@{/pojistenci/new}">Sjednat pojistění</a>
+            </div>
+        </div>
+        <div class="fe-box">
+            <img class="povodne" th:src="@{images/povodne-uvod.jpg}">
+            <h6>Ochraňte svůj majetek!</h6>
+            <p>Pojistěte se u nás před ničívými živly!</p>
+            <ul class="druhyPojisteni">
+                <li>
+                    <a th:href="@{/pojisteni/new}">Pojištění majetku</a>
+                </li>
+                <li>
+                    <a th:href="@{/pojisteni/new}">Úrazové pojištění</a>
+                </li>
+                <li>
+                    <a th:href="@{/pojisteni/new}">Cestovní pojištění</a>
+                </li>
+                <li>
+                    <a th:href="@{/pojisteni/new}">Životní majetku</a>
+                </li>
+                <li>
+                    <a th:href="@{/pojisteni/new}">Pojištění zájmů</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fe-box">
+            <img class="hardtimes" th:src="@{images/hard-times3.jpg}">
+            <h6>Podpora v těžkých časech</h6>
+            <p>Potřebujete nahlásit škodu, nebo si chcete zkotrolovat, jakém stavu je už náhlášená škoda?</p>
+            <div class="reportDamage">
+                <a th:href="@{/events}">Nahlásit škodu</a>
+            </div>
+            <div class="solveDamage">
+                <a th:href="@{/events}">Řešit nahlášenou škodu</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

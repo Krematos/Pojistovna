@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<section id="pojisteni">
+    <form class="pojisteni">
+        <h2>Přidat pojištění k </h2>
+        <div class="vyberPojisteni">
+            <label for="pojisteni">Pojistění:</label>
+            <select id="typ_pojisteni" name="typ_pojisteni">
+                <option value="Životní pojištění">Životní pojištění</option>
+                <option value="Úrazové pojištění">Úrazové pojištěn</option>
+                <option value="Cestovní pojištění">Cestovní pojištěn</option>
+                <option value="Pojištění majetku">Pojištění majetku</option>
+                <option value="Pojištění zájmů">Pojištění zájmů</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="amount">
+                    <label for="amount">Částka:</label>
+                    <input type="text" id="amount" name="Částka" placeholder="100 000" required>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="subjectOfInsurance">
+                    <label for="subjectOfInsurance">Předmět pojištění:</label>
+                    <input type="text" id="subjectOfInsurance" name="Předmět pojištění" placeholder="Dům" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="validFrom">
+                    <label for="validFrom">Platnost od:</label>
+                    <input type="text" id="validFrom" name="validFrom"  placeholder="22.1.2024" >
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="validUntil">
+                    <label for="validUntil">Platnost do:</label>
+                    <input type="text" id="validUntil" name="validUntil"  placeholder="22.12.2024" required>
+                </div>
+            </div>
+        </div>
+        <div class="save">
+            <input type="submit" value="Uložit">
+        </div>
+    </form>
+</section>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

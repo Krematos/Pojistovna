@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<section class="home">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 ">
+        <div class="left">
+          <h3>Ahoj, jsem</h3>
+          <h1>Jan Macner</h1>
+          <h4>
+            Jsem <span class="multiple"></span>
+          </h4>
+          <p>
+            Zdravím, jsem Jan Macner, autor tohohle projektu, zápalený Programátor se specializací na back-end.
+            Umím programovat v Java, HTML, CSS a JavaScript. Umím používat v  SQL databáze. Ovládám také vizualizace
+            v PowerBi a MS Office. Aktivně ve svých projektech využívám umělou inteligenci k zefektivnění práce. Rád se vzdělávám a učím novým věcem.
+          </p>
+          <div class="btn">
+            <button>Stáhnout CV</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 ">
+        <div class="right">
+          <div class="profile">
+            <img th:src="@{images/Profilovka.jpg}" alt="profilovka">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script th:src="@{script.js}"></script>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>
