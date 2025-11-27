@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <head th:replace="~{fragments/layout.html :: head}"></head>
+    <title>Detail pojištěnce</title>
 </head>
 <body>
 <header th:replace="~{fragments/layout.html :: header}"></header>
 
-<section id="pojistenciDetail">
-    <h2>Pojištěnci</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Jméno</th>
-            <th>Příjmení</th>
-            <th>Email</th>
-            <th>Telefon</th>
-            <th>Ulice</th>
-            <th>Mesto</th>
-            <th>PSC</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pojistenci : ${pojistenci}">
-            <td th:text="${pojistenci.Jmeno}">Jméno</td>
-            <td th:text="${pojistenci.Prijmeni}">Příjmení</td>
-            <td th:text="${pojistenci.Email}">E-mail</td>
-            <td th:text="${pojistenci.telefon}">Telefon</td>
-            <td th:text="${pojistenci.Ulice}">Ulice</td>
-            <td th:text="${pojistenci.Mesto}">Město</td>
-            <td th:text="${pojistenci.PSC}">PSC</td>
-        </tr>
-        </tbody>
-    </table>
+<section>
+    <h2>Detail pojištěnce</h2>
+    <div th:if="${pojistenec}">
+        <p><strong>Jméno:</strong> <span th:text="${pojistenec.Jmeno}"></span></p>
+        <p><strong>Příjmení:</strong> <span th:text="${pojistenec.Prijmeni}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${pojistenec.Email}"></span></p>
+        <p><strong>Telefon:</strong> <span th:text="${pojistenec.telefon}"></span></p>
+        <p><strong>Ulice:</strong> <span th'text="${pojistenec.Ulice}"></span></p>
+        <p><strong>Město:</strong> <span th:text="${pojistenec.Mesto}"></span></p>
+        <p><strong>PSČ:</strong> <span th:text="${pojistenec.PSC}"></span></p>
+        <p><strong>Datum narození:</strong> <span th:text="${pojistenec.birthday}"></span></p>
+
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <a th:href="@{/pojistenci/edit/{id}(id=${pojistenec.pojistenci_id})}" class="btn btn-primary">Editovat</a>
+            <form th/action="@{/pojistenci/delete/{id}(id=${pojistenec.pojistenci_id})}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Smazat</button>
+            </form>
+        </div>
+    </div>
+    <div th:unless="${pojistenec}">
+        <p>Pojištěnec nebyl nalezen.</p>
+    </div>
 </section>
 
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>

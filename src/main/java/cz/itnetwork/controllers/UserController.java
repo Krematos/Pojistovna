@@ -28,11 +28,6 @@ public class UserController {
         return "/pages/user/register.html";
     }
 
-    @GetMapping("/logout")
-    public String renderLogout(){
-        return "/pages/user/login.html";
-    }
-
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute UserDTO userDTO, BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors())
@@ -48,7 +43,7 @@ public class UserController {
             return "/pages/user/register";
         }
         redirectAttributes.addFlashAttribute("success", "Uživatel zaregistrován.");
-        return "redirect:/user/login";
+        return "redirect:/login";
     }
 
 

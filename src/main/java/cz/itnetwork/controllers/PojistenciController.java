@@ -1,9 +1,6 @@
 package cz.itnetwork.controllers;
 
-
-
 import cz.itnetwork.models.dto.PojistenciDTO;
-import cz.itnetwork.models.dto.mapper.PojistenciMapper;
 import cz.itnetwork.models.exceptions.PojistenecNotFoundException;
 import cz.itnetwork.models.services.PojistenciService;
 import jakarta.validation.Valid;
@@ -17,58 +14,73 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
-
-
 @Controller
-@RequestMapping
+@RequestMapping("/pojistenci")
 public class PojistenciController {
 
-    private final PojistenciMapper pojistenciMapper;
     @Autowired
     private PojistenciService pojistenciService;
 
-
-
-
-    public PojistenciController(PojistenciService pojistenciService, PojistenciMapper pojistenciMapper){
-        this.pojistenciService = pojistenciService;
-        this.pojistenciMapper = pojistenciMapper;
-    }
-
-    @GetMapping("/pojistenci/detail")
-    public String showPojistenciDetail(Model model){
+    @GetMapping
+    public String listPojistenci(Model model) {
         List<PojistenciDTO> pojistenci = pojistenciService.getAll();
         model.addAttribute("pojistenci", pojistenci);
-        return "pages/pojistenci/detail.html";
+        return "pages/pojistenci/index";
     }
 
+    @GetMapping("/{pojistenci_id}")
+    public String showPojistenec(@PathVariable long pojistenci_id, Model model) {
+        PojistenciDTO pojistenec = pojistenciService.getById(pojistenci_id);
+        model.addAttribute("pojistenec", pojistenec);
+        return "pages/pojistenci/detail";
+    }
 
-    @GetMapping({"/pojistenci/new"})
-    public String createPojistenec(@Valid @ModelAttribute PojistenciDTO pojistenciDTO, BindingResult result, RedirectAttributes redirectAttributes){
+    @GetMapping("/new")
+    public String renderNewPojistenecForm(@ModelAttribute("pojistenciDTO") PojistenciDTO pojistenciDTO) {
+        return "pages/pojistenci/new";
+    }
+
+    @PostMapping("/new")
+    public String createPojistenec(@Valid @ModelAttribute("pojistenciDTO") PojistenciDTO pojistenciDTO, BindingResult result, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "pages/pojistenci/new";
+        }
         pojistenciService.create(pojistenciDTO);
-        redirectAttributes.addFlashAttribute("success", "Pojištěnec přidán.");
-        return "pages/pojistenci/new.html";
+        redirectAttributes.addFlashAttribute("success", "Pojištěnec úspěšně přidán.");
+        return "redirect:/pojistenci";
     }
+
     @Secured("ROLE_ADMIN")
-    @GetMapping("edit/{pojistenci_id}")
-    public String editDetail(@PathVariable long pojistenci_id, @Valid PojistenciDTO pojistenciDTO, BindingResult result, RedirectAttributes redirectAttributes){
+    @GetMapping("/edit/{pojistenci_id}")
+    public String renderEditForm(@PathVariable long pojistenci_id, Model model) {
+        PojistenciDTO pojistenec = pojistenciService.getById(pojistenci_id);
+        model.addAttribute("pojistenec", pojistenec);
+        return "pages/pojistenci/edit";
+    }
+
+    @Secured("ROLE_ADMIN")
+    @PostMapping("/edit/{pojistenci_id}")
+    public String updatePojistenec(@PathVariable long pojistenci_id, @Valid @ModelAttribute("pojistenec") PojistenciDTO pojistenciDTO, BindingResult result, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "pages/pojistenci/edit";
+        }
         pojistenciDTO.setPojistenci_id(pojistenci_id);
         pojistenciService.edit(pojistenciDTO);
         redirectAttributes.addFlashAttribute("success", "Údaje o pojištěnci byly upraveny.");
         return "redirect:/pojistenci";
     }
-    @Secured("ROLE_ADMIN")
-    @GetMapping("/delete/{pojistenci_id}")
-    public  String removePojistenci(@PathVariable Long pojistenci_id, RedirectAttributes redirectAttributes){
-        pojistenciService.remove(pojistenci_id);
-        redirectAttributes.addFlashAttribute("success", "Vozidlo smazáno");
-        return  "redirect:/pojistenci";
-    }
 
-    @ExceptionHandler({PojistenecNotFoundException.class})
-    public String handlePojistenecNotFoundException(RedirectAttributes redirectAttributes){
-        redirectAttributes.addFlashAttribute("error", "Pojištěnec nenalezen");
+    @Secured("ROLE_ADMIN")
+    @PostMapping("/delete/{pojistenci_id}")
+    public String removePojistenec(@PathVariable Long pojistenci_id, RedirectAttributes redirectAttributes) {
+        pojistenciService.remove(pojistenci_id);
+        redirectAttributes.addFlashAttribute("success", "Pojištěnec byl smazán.");
         return "redirect:/pojistenci";
     }
 
+    @ExceptionHandler({PojistenecNotFoundException.class})
+    public String handlePojistenecNotFoundException(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("error", "Pojištěnec nenalezen.");
+        return "redirect:/pojistenci";
+    }
 }

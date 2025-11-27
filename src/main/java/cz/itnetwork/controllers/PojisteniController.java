@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PojisteniController {
 
     @GetMapping("/pojisteni/new")
-    public String showPojistenciPage(){
+    public String renderNewPojisteniForm(){
         return "/pages/pojisteni/new.html";
     }
 

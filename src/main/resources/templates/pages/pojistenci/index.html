@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<section id="pojistenciDetail">
+    <h2>Pojištěnci</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Ulice</th>
+            <th>Mesto</th>
+            <th>PSC</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pojistenci : ${pojistenci}">
+            <td th:text="${pojistenci.Jmeno}">Jméno</td>
+            <td th:text="${pojistenci.Prijmeni}">Příjmení</td>
+            <td th:text="${pojistenci.Email}">E-mail</td>
+            <td th:text="${pojistenci.telefon}">Telefon</td>
+            <td th:text="${pojistenci.Ulice}">Ulice</td>
+            <td th:text="${pojistenci.Mesto}">Město</td>
+            <td th:text="${pojistenci.PSC}">PSC</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

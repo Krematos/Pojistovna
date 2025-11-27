@@ -2,25 +2,26 @@
 <html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <head th:replace="~{fragments/layout.html :: head}"></head>
-    <title>Nový pojištěnec</title>
+    <title>Editace pojištěnce</title>
 </head>
 <body>
 <header th:replace="~{fragments/layout.html :: header}"></header>
 
-<section id="newPojistenec">
-    <form class="newPojistence" th:action="@{/pojistenci/new}" th:object="${pojistenciDTO}" method="post">
-        <h2>Nový pojištěnec:</h2>
+<section id="editPojistenec">
+    <form class="editPojistence" th:action="@{/pojistenci/edit/{id}(id=${pojistenec.pojistenci_id})}" th:object="${pojistenec}" method="post">
+        <h2>Editace pojištěnce:</h2>
+        <input type="hidden" th:field="*{pojistenci_id}" />
         <div class="row">
             <div class="col-6">
                 <div class="jmeno">
                     <label for="name">Jméno:</label>
-                    <input type="text" id="name" placeholder="Jan" th:field="*{Name}" >
+                    <input type="text" id="name" th:field="*{Name}" >
                 </div>
             </div>
             <div class="col-6">
                 <div class="lastName">
                     <label for="lastName">Příjmení:</label>
-                    <input type="text" id="lastName" placeholder="Novák" th:field="*{lastName}">
+                    <input type="text" id="lastName" th:field="*{lastName}">
                 </div>
             </div>
         </div>
@@ -34,7 +35,7 @@
             <div class="col-6">
                 <div class="telefon">
                     <label for="telefon">Telefon:</label>
-                    <input type="text" id="telefon" placeholder="601 531 333" th:field="*{telefon}">
+                    <input type="text" id="telefon" th:field="*{telefon}">
                 </div>
             </div>
         </div>
@@ -42,13 +43,13 @@
             <div class="col-6">
                 <div class="uliceAcisloPopisne">
                     <label for="address">Ulice a číslo popisné:</label>
-                    <input type="text" id="address" placeholder="Školní 14" th:field="*{address}">
+                    <input type="text" id="address" th:field="*{address}">
                 </div>
             </div>
             <div class="col-6">
                 <div class="town">
                     <label for="town">Město:</label>
-                    <input type="text" id="town" placeholder="Praha" th:field="*{town}">
+                    <input type="text" id="town" th:field="*{town}">
                 </div>
             </div>
         </div>
@@ -56,13 +57,13 @@
             <div class="col-6">
                 <div class="psc">
                     <label for="psc">PSČ:</label>
-                    <input type="text" id="psc" placeholder="340 22" th:field="*{PSC}">
+                    <input type="text" id="psc" th:field="*{PSC}">
                 </div>
             </div>
         </div>
 
         <div class="pojistenec">
-            <input type="submit" value="Přidat pojištěnce">
+            <input type="submit" value="Uložit změny">
         </div>
     </form>
 </section>

@@ -1,8 +1,7 @@
 package cz.itnetwork.data.entities;
 
 import jakarta.persistence.*;
-
-
+import java.time.LocalDate;
 
 @Entity
 public class Pojistenci {
@@ -10,7 +9,7 @@ public class Pojistenci {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long pojistenci_id;
     @Column(nullable = false, length = 20)
-    private String name;
+    private String Name;
     @Column(nullable = false, length = 30)
     private String lastName;
     @Column(nullable = false, length = 30)
@@ -21,14 +20,22 @@ public class Pojistenci {
     private String PSC;
     @Column(nullable = false, length = 60)
     private String address;
-    @Column(nullable = false, length = 20)
-    private String birthday;
+    @Column(nullable = false)
+    private LocalDate birthday;
 
     @Column(nullable = false)
     private boolean isDeleted;
 
 
     //region: getters and setters
+    public long getPojistenci_id() {
+        return pojistenci_id;
+    }
+
+    public void setPojistenci_id(long pojistenci_id) {
+        this.pojistenci_id = pojistenci_id;
+    }
+
     public String getTelefon(){
         return telefon;
     }
@@ -38,11 +45,11 @@ public class Pojistenci {
     }
 
     public String getName(){
-        return name;
+        return Name;
     }
 
     public void setName(String name){
-        this.name = name;
+        this.Name = name;
     }
 
     public String getLastName(){
@@ -61,11 +68,11 @@ public class Pojistenci {
         this.town = town;
     }
 
-    public String getBirthday(){
+    public LocalDate getBirthday(){
         return birthday;
     }
 
-    public void setBirthday(String birthday){
+    public void setBirthday(LocalDate birthday){
         this.birthday = birthday;
     }
 

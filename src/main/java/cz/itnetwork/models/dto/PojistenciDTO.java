@@ -1,8 +1,10 @@
 package cz.itnetwork.models.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
-
+import java.time.LocalDate;
 
 public class PojistenciDTO {
     private long pojistenci_id;
@@ -12,8 +14,9 @@ public class PojistenciDTO {
     private String Name;
     @NotBlank(message = "Zadejte příjmení")
     private String lastName;
-    @NotBlank(message = "Zadejte datum narození")
-    private String birthday;
+    @NotNull(message = "Zadejte datum narození")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate birthday;
     @NotBlank(message = "Zadejte město")
     private String town;
     @NotBlank(message = "Zadejte PSC")
@@ -64,11 +67,11 @@ public class PojistenciDTO {
         this.town = town;
     }
 
-    public String getBirthday(){
+    public LocalDate getBirthday(){
         return birthday;
     }
 
-    public void setBirthday(String birthday){
+    public void setBirthday(LocalDate birthday){
         this.birthday = birthday;
     }
 
